@@ -1,0 +1,105 @@
+import java.util.Scanner;
+
+/* Polymorphism : One name multiple forms 
+ * 
+ * Two forms : 
+ * 1. Compile time polymorphism(early binding or static binding)
+ * e.g.: method overloading or operater overloading 
+ * 
+ * 2. Run time polymorphism(Late binding or dynamic binding)
+ * e.g.: virtual function (c++), method overridding 
+ * 
+ */
+
+class geometry
+{
+	public void compute_area()
+	{
+		
+	}
+}
+
+class rect extends geometry
+{
+	
+	
+	public void compute_area()
+	{
+		float length,breadth;
+		Scanner sc=new Scanner(System.in);
+		System.out.println("Enter the length of the rectangle: ");
+		length=sc.nextFloat();
+		System.out.println("Enter the breadth of the rectangle: ");
+		breadth=sc.nextFloat();
+		
+		float area=length*breadth;
+		System.out.println("Area of Reactangle is: "+area+" sq.unit");
+	}
+}
+
+class cir extends geometry
+{
+	public void compute_area()
+	{
+		float radius;
+		System.out.println("\nEnter the radius of circle: ");
+		Scanner sc=new Scanner(System.in);
+		radius=sc.nextFloat();
+		
+		double area=3.14*radius*radius;
+		System.out.println("Area of circle is: "+area+" sq.unit");
+	}
+}
+
+class tri extends geometry
+{
+	public void compute_area()
+	{
+		float base,height;
+		Scanner sc=new Scanner(System.in);
+		System.out.println("\nEnter the base of the triangle: ");
+		base=sc.nextFloat();
+		System.out.println("Enter the height of the triangle: ");
+		height=sc.nextFloat();
+		
+		double area=0.5*base*height;
+		System.out.println("Area of Triangle is: "+area+" sq.unit");
+	}
+}
+public class MO {
+
+	public static void main(String[] args) {
+		
+		int ch;
+		do {
+			Scanner sd=new Scanner(System.in);
+			System.out.println("\n1.Area of Rectangle\n2.Area of Circle\n3.Area of Triangle\n4.Exit");
+			System.out.println("\nEnter your choice");
+			ch=sd.nextInt();
+			
+			switch(ch)
+			{
+			case 1:
+				geometry obj=new rect();
+				obj.compute_area();
+				break;
+				
+			case 2:
+				geometry obj1=new cir();
+				obj1.compute_area();
+				break;
+				
+			case 3:
+				geometry obj2=new tri();
+				obj2.compute_area();
+				break;
+				
+			case 4: System.out.println("Thank You:)"); 
+				System.exit(0);
+			}
+			
+		}while(ch!=4);
+
+	}
+
+}
